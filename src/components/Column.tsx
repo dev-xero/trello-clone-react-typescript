@@ -4,6 +4,7 @@ import { AddNewItem } from './AddNewItem'
 
 interface ColumnProps {
   text: string
+  index: number
 }
 
 export const Column = ({
