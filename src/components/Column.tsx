@@ -11,8 +11,8 @@ export const Column = ({
 }: React.PropsWithChildren<ColumnProps>) => {
   return (
     <ColumnContainer>
-			<ColumnTitle>{text}</ColumnTitle>
-			{ children }
+      <ColumnTitle>{text}</ColumnTitle>
+      {children}
     </ColumnContainer>
   )
 }

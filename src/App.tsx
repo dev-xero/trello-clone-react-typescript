@@ -1,10 +1,11 @@
-import { AppContainer } from './styles';
-import { Column } from './components/Column';
-import { Card } from './components/Card';
+import React from 'react'
+import { AppContainer } from './styles'
+import { Column } from './components/Column'
+import { Card } from './components/Card'
 
 function App() {
   return (
-    <AppContainer >
+    <AppContainer>
       <Column text="To Do">
         <Card text="Generate app scaffold" />
       </Column>
@@ -15,7 +16,7 @@ function App() {
         <Card text="Begin to use static typing" />
       </Column>
     </AppContainer>
- );
+  )
 }
 
-export default App;
+export default App
