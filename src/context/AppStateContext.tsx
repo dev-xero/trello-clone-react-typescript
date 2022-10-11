@@ -11,6 +11,14 @@ interface List {
 	tasks: Task[]
 }
 
+type Action = {
+	type: "ADD_LIST"
+	payload: string
+} | {
+	type: "ADD_TASK"
+	payload: { text: string; taskId: string }
+}
+
 export interface AppState {
 	lists: List[]
 }
@@ -42,11 +50,26 @@ interface AppStateContextProps {
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
 
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
-	return (<AppStateContext.Provider value={{ state: appData }}>
+	const [state, dispatch] = useReducer(AppStateReducer, appData)
+	return (<AppStateContext.Provider value={{ state, dispatch }}>
 		{ children }
 	</AppStateContext.Provider>)
 }
 
 export const useAppState = () => {
 	return useContext(AppStateContext)
+}
+
+const AppStateReducer = (state: AppState, action: Action) => {
+	switch (action.type) {
+		case 'ADD_LIST': {
+			return { ...state }
+		}
+		case 'ADD_TASK': {
+			return { ...state }
+		}
+		default: {
+			return state
+		}
+	}
 }
